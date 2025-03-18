@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>expenses tracker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        #expAmt {
+            position: relative;
+        }
+
+        .test {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #total {
+            color: red;
+        }
+        .test1{
+            display: flex;
+            justify-content: space-between;
+            gap: 80px;
+        }
+        table{
+            border: 2px solid blue;
+        }
+        .head{
+            display: flex;
+            gap: 20px;
+            background-color: rgb(194, 194, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="test1">
+            <div>
+                <h1>Expense tracker</h1>
+                <form action="">
+                    <label for="expName">
+                        <p>Name</p>
+                        <input type="text" id="expName">
+                    </label>
+                    <label for="expAmt">
+                        <p>Amount</p>
+                        <input type="num" name="" id="expAmt">
+
+                    </label>
+
+                    <div class="test">
+                        <label for="expCategory">
+                            <p>Category</p>
+                            <select name="" id="expCategory">
+                                <option value="select">Select</option>
+                                <option value="Personal">Personal</option>
+                                <option value="food">food</option>
+                                <option value="entertainment">entertainment</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </label>
+                        <label for="expDate">
+                            <p>date</p>
+                            <input type="date" id="expDate">
+                        </label>
+                    </div>
+                    <button onclick="addExp(event)">ADD</button>
+                </form>
+                <div>
+                    <h1>total Amt</h1>
+                    <p>RS. <span id="total"></span></p>
+                </div>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr class="head">
+                            <th>Expense Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expList">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</body>
+<script src="script.js"></script>
+
+</html>
