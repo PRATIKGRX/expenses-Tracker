@@ -20,15 +20,19 @@ function addExp(event) {
     const expDate = document.getElementById("expDate").value;
     if (expName.trim() == '') {
         alert("Name Of the Expenses Required:");
+        return;
 
     }
     else {
         if (isNaN(expAmt)) {
             alert("amount is not a Number or empty");
+            return;
+
         }
         else {
             if (expCategory == "select") {
                 alert("select the category");
+                return;
             }
             else {
                 if (expDate == '') {
@@ -50,11 +54,11 @@ function addExp(event) {
                         updateAmt();
                         saveToLocalStorage();
                     }
-                    else{
+                    else {
                         alert("Input Date");
                         return;
 
-                        
+
                     }
                 }
                 else {
@@ -90,11 +94,11 @@ function display() {
     expenses.forEach((exp, i) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-        <td>${exp.name}</td>
-                <td>${exp.amount}</td>
-                <td>${exp.category}</td>
-                <td>${exp.date}</td>
-                <td><button onclick="deleteExp(`+ i + `)">Delete</button></td>
+        <td  class="w-[45%]">${exp.name}</td>
+                <td class="w-[15%]">${exp.amount}</td>
+                <td class="w-[15%] text-center">${exp.category}</td>
+                <td class="w-[15%] text-center">${exp.date}</td>
+                <td class="w-[10%] text-center"><button onclick="deleteExp(`+ i + `)" class="bg-red-800 text-white rounded-sm w-full my-[2px]">Delete</button></td>
         `;
         expList.appendChild(tr);
 
@@ -112,6 +116,6 @@ function updateAmt() {
         return sum + parseInt(exp.amount);
     }, 0);
     document.getElementById("total").textContent = parseInt(total.toFixed(2));
-    
+
 }
 window.onload = loadFromLocalStorage;

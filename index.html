@@ -1,114 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>expenses tracker</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-        h1 {
-            text-align: center;
-        }
+  <body>
+    <section class="">
+        <div class="sm:px-8 lg:px-12 xl:px-20 flex flex-col sm:justify-center md:flex-col md:justify-center xl:flex-row xl:justify-between">
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
+        <div class="border-2 border-green-200 w-full xl:w-[45%] p-6 lg:p-10 md:p-8 xl:p-20 ">
+          <h1 class="text-2xl font-bold mb-4">Expense tracker</h1>
+          <form action="" class="mb-4">
+            <label for="expName" class="flex justify-between mb-4">
+              <p>Name :</p>
+              <input type="text" id="expName" class="bg-[#DEDEDE] xl:w-60 lg:w-[600px] md:w-[500px] sm:w-[400px] w-[250px]" />
+            </label>
+            <label for="expAmt" class="flex justify-between mb-4">
+              <p>Amount :</p>
+              <input type="num" name="" id="expAmt" class="bg-[#DEDEDE] xl:w-60 lg:w-[600px] md:w-[500px] sm:w-[400px] w-[230px]" />
+            </label>
 
-        #expAmt {
-            position: relative;
-        }
-
-        .test {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #total {
-            color: red;
-        }
-        .test1{
-            display: flex;
-            justify-content: space-between;
-            gap: 80px;
-        }
-        table{
-            border: 2px solid blue;
-        }
-        .head{
-            display: flex;
-            gap: 20px;
-            background-color: rgb(194, 194, 255);
-        }
-    </style>
-</head>
-
-<body>
-    <section class="container">
-        <div class="test1">
-            <div>
-                <h1>Expense tracker</h1>
-                <form action="">
-                    <label for="expName">
-                        <p>Name</p>
-                        <input type="text" id="expName">
-                    </label>
-                    <label for="expAmt">
-                        <p>Amount</p>
-                        <input type="num" name="" id="expAmt">
-
-                    </label>
-
-                    <div class="test">
-                        <label for="expCategory">
-                            <p>Category</p>
-                            <select name="" id="expCategory">
-                                <option value="select">Select</option>
-                                <option value="Personal">Personal</option>
-                                <option value="food">food</option>
-                                <option value="entertainment">entertainment</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </label>
-                        <label for="expDate">
-                            <p>date</p>
-                            <input type="date" id="expDate">
-                        </label>
-                    </div>
-                    <button onclick="addExp(event)">ADD</button>
-                </form>
-                <div>
-                    <h1>total Amt</h1>
-                    <p>RS. <span id="total"></span></p>
-                </div>
+            <div class="flex justify-between mb-4">
+              <label for="expCategory">
+                <p>Category</p>
+                <select name="" id="expCategory" class="bg-[#053C69] text-white rounded-sm">
+                  <option value="select">Select</option>
+                  <option value="Personal">Personal</option>
+                  <option value="food">food</option>
+                  <option value="entertainment">entertainment</option>
+                  <option value="Others">Others</option>
+                </select>
+              </label>
+              <label for="expDate">
+                <p>Date</p>
+                <input type="date" id="expDate" />
+              </label>
             </div>
-            <div>
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Expense Name</th>
-                            <th>Amount</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="expList">
-
-                    </tbody>
-                </table>
-            </div>
+            <button onclick="addExp(event)" class="w-full bg-[#67F702] py-2 rounded-lg font-bold text-[#494949]">ADD</button>
+          </form>
+          <div>
+            <h1 class="text-xl font-bold">Total Amt</h1>
+            <p class="font-bold">RS. <span id="total" class="text-red-600 "></span></p>
+          </div>
         </div>
-
+        <div class="xl:w-[650px] w-full">
+          <table class="w-full border-collapse border-2">
+            <thead>
+              <tr class="head">
+                <th class="w-[45%] bg-green-500">Expense Name</th>
+                <th class="w-[15%] bg-red-500">Amount</th>
+                <th class="w-[15%] bg-red-200">Category</th>
+                <th class="w-[15%] bg-yellow-200">Date</th>
+                <th class="w-[10%] bg-green-200">Action</th>
+              </tr>
+            </thead>
+            <tbody id="expList"></tbody>
+          </table>
+        </div>
+      </div>
     </section>
-</body>
-<script src="script.js"></script>
-
+  </body>
+  <script src="script.js"></script>
 </html>
